@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utforska - Hello World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            color: #1a1a1a;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1516571748831-5d81767b788d?auto=format&fit=crop&w=2000');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 20px;
+            gap: 2rem;
+        }
+
+        .container {
+            text-align: left;
+            animation: fadeIn 1.5s ease-out;
+            background: rgba(28, 32, 38, 0.85);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .explore-content {
+            font-size: 1.2rem;
+            color: #e2e2e2;
+            line-height: 1.8;
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .explore-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .explore-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .explore-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .explore-box h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .explore-link {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .explore-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            background: rgba(28, 32, 38, 0.95);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-menu li {
+            margin: 0.5rem 0;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.15);
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                top: 1rem;
+                right: 1rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+            .explore-content {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="om-planeten.html">Om Planeten</a></li>
+            <li><a href="utforska.html" class="active">Utforska</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+    <div class="background"></div>
+    <div class="page-content">
+        <div class="container">
+            <h1>Utforska Vår Fantastiska Värld</h1>
+            <div class="explore-content">
+                <p>Vår planet är full av underverk som väntar på att upptäckas. Från de djupaste havsgravarna till de högsta bergstopparna, från täta regnskogar till öde öknar - varje hörn av jorden har en unik historia att berätta.</p>
+
+                <h2>Moderna Utforskningsverktyg</h2>
+                <p>I dagens digitala era har vi tillgång till otroliga verktyg som låter oss utforska jorden på helt nya sätt. Satellitbilder, 3D-kartor och virtuella turer ger oss möjlighet att besöka platser vi kanske aldrig kommer att se i verkligheten.</p>
+
+                <div class="explore-box">
+                    <h3>Google Earth</h3>
+                    <p>Utforska planeten i 3D med detaljerade satellitbilder och terrängmodeller. Besök världens mest kända landmärken eller upptäck dolda pärlor i din egen närhet.</p>
+                    <a href="https://earth.google.com/web/" target="_blank" class="explore-link">Starta Google Earth</a>
+                </div>
+
+                <h2>Naturens Under</h2>
+                <p>Jorden är hem till en otrolig mångfald av ekosystem och naturliga underverk. Från Stora barriärrevet i Australien till Amazonas regnskog i Sydamerika finns det oändligt mycket att upptäcka och lära sig om.</p>
+
+                <div class="explore-box">
+                    <h3>Världsarv</h3>
+                    <p>UNESCO:s världsarvslista innehåller över 1000 platser av enastående kulturellt eller naturligt värde. Dessa platser representerar mänsklighetens och naturens mest värdefulla skatter.</p>
+                    <a href="https://whc.unesco.org/en/list/" target="_blank" class="explore-link">Utforska Världsarv</a>
+                </div>
+
+                <h2>Havens Djup</h2>
+                <p>Våra hav täcker mer än 70% av jordens yta, men vi har utforskat mindre än 5% av dem. I dessa mystiska djup finns arter vi ännu inte upptäckt och ekosystem vi bara börjat förstå.</p>
+
+                <div class="explore-box">
+                    <h3>Oceanografisk Forskning</h3>
+                    <p>Moderna forskningsfartyg och undervattensrobotar hjälper oss att kartlägga havens hemligheter. Från bioluminiscerande djuphavsvarelser till hydrotermiska ventiler, finns det en hel värld att upptäcka under ytan.</p>
+                    <a href="https://oceanexplorer.noaa.gov/" target="_blank" class="explore-link">Utforska Haven</a>
+                </div>
+
+                <h2>Rymdperspektiv</h2>
+                <p>Från rymden ser vi vår planet i ett helt nytt perspektiv. Satellitbilder hjälper oss att förstå vädermönster, klimatförändringar och jordens geologiska processer på ett sätt som tidigare var omöjligt.</p>
+
+                <div class="explore-box">
+                    <h3>NASA Earth Observatory</h3>
+                    <p>Se jorden genom NASA:s ögon med dagliga satellitbilder och visualiseringar av globala fenomen.</p>
+                    <a href="https://earthobservatory.nasa.gov/" target="_blank" class="explore-link">Se Jorden från Rymden</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
