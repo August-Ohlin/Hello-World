@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config(); // Ladda miljövariabler från .env-filen
+
 import { OpenAI } from 'openai';
 
 // Skapa en OpenAI-instans med API-nyckeln från miljövariabler
